@@ -325,6 +325,7 @@ def run(scn: Scenario, factors: dict, payments: Payments, *, p_miss: float, fee_
     r.payment = {"status": status, "amount_gbp": offer.hold_fee_gbp, "merchant": offer.carrier}
     if res.get("hold"):
         r.payment["hold_id"] = res["hold"].hold_id
+        r.payment["amount_gbp"] = res["hold"].amount_gbp  # an existing hold keeps the price it was bought at
     if res.get("receipt"):
         r.payment["receipt_id"] = res["receipt"].receipt_id
     if res.get("approval"):

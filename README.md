@@ -29,3 +29,8 @@ Add this to the Claude Desktop config (Settings → Developer → Edit config):
 {"mcpServers": {"safety-car": {"command": "/ABSOLUTE/PATH/.venv/bin/python",
                                "args": ["/ABSOLUTE/PATH/safety-car/mcp_server.py"]}}}
 ```
+Restart Claude Desktop. Tools: `get_shipment`, `check_options` (preview, no payment), `run_safety_car`
+(acts within the spend policy; shares data/state.json with the app, so approvals appear on Sarah's phone view)
+and `ledger`. There is deliberately no approve tool. Try: "Check the timing unit's options at 35%, then run
+Safety Car." Test it without Claude Desktop: `npx @modelcontextprotocol/inspector` with command
+`.venv/bin/python mcp_server.py`.
