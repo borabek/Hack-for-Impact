@@ -111,6 +111,15 @@ Still open:
   pending £120 approval on it at ~14:25.
 
 ## Requests (changes needed in files you don't own)
+- Team → C (14:55): **make your slides match the app** (decided: the app's numbers win, no data change before the
+  freeze). In "Safety Car – pitch deck":
+  - Freight impact slide: "≈17 vs ≈356 kg" → **"≈18 vs ≈356 kg"**; footnote "47 km first mile" → **"50 km first
+    mile (approximate)"**.
+  - Sources slide: "first mile 47 km, Milton Keynes → Daventry" → **"first mile 50 km, Milton Keynes → Daventry
+    (approximate)"**; "Extraction accuracy: [X/Y fields…]" → **"33/35 fields (94%) live, 45/46 quotes verified;
+    small test set"**.
+  - Full product deck with app screenshots, all numbers from main: https://claude.ai/artifact/9GQ5eXqfJ6XRdgE3hWhTb9
+    (ask for access).
 - A → B (agent API for app.py, PROMPT B3):
   - `agent.run(scn, factors, payments, p_miss=, fee_rise=, use_llm=)` returns an `AgentRun`: `steps` (icon/title/detail),
     `options`, `offers`, `checks` (offer_id → QuoteChecks), `messages`, `files`, `sources`, `extraction`
