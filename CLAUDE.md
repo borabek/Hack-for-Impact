@@ -130,7 +130,7 @@ phone screen share it.
 - `decide(approval_id, approve, by, at) -> Receipt | None`. Only the named owner (`policy.owner`) may decide:
   raise `PermissionError` for the agent's ID or any other identity. Decline → no charge. Deciding an approval that
   is no longer pending does nothing (clicking Approve twice gives one receipt). Approve → charge + receipt with
-  authorisation "Approved by Sarah Clarke (Head of Logistics) because it was over the £100 limit". Approving a
+  authorisation "Approved by Sarah Clarke (Logistics Manager) because it was over the £100 limit". Approving a
   `transport` request also marks the hold `used` and sets a simulated confirmation_ref (e.g. "NL-417-3F2A").
 - `confirm(hold_id, *, amount, what_for, paperwork_done, purpose, reason, at) -> dict`: the late branch. Returns
   `needs_paperwork` if paperwork_done is false. Otherwise it runs the policy check on the transport charge:

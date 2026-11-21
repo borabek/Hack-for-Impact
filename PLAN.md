@@ -54,14 +54,14 @@ Q&A moment: drag the risk slider from 2% to 35%, and the decision flips from "wa
 ## 2. Judging map
 | The judges ask | What we show | Owner |
 |---|---|---|
-| **Customer**: who decides, why pay again? | The Head of Logistics at a small race supplier sets the policy once a season; Safety Car buys holds every race weekend. A real quote from someone in the room. | C |
+| **Customer**: who decides, why pay again? | The Logistics Manager at a small race supplier sets the policy once a season; Safety Car buys holds every race weekend. A real quote from someone in the room. | C |
 | **Prototype**: what does the AI do? One purchase and who approves? | The AI reads 4 messy messages and the small print. The £60 hold is auto-booked with a receipt. At £120, Sarah approves on her phone and gets a receipt. If the unit then fails its test, Sarah approves the £340 transport and the carrier confirms the slot. | A + B |
 | **Freight impact**: usual plan vs yours? | The impact card. Headline: **1 dedicated cross-border trip avoided**. If the unit is late: £400 vs £1,650 (£460 after the £120 replay); arrives Thu 09:00 CET, 19 h after the van but 9 h before the deadline; ≈18 vs ≈356 kg CO2e as a modelled estimate (UK Government factors, boundary on screen) | B + C |
 | **Next test**: what would you test with SolvaPay? | Will suppliers set a standing spend policy and let the agent book holds without asking? (Section 9) | C |
 
 ## 3. The product
 - **Buyer:** a small or mid-sized race supplier (timing, telemetry or hospitality kit).
-  - Decision maker: the Head of Logistics, who sets the spend policy once a season and approves exceptions.
+  - Decision maker: the Logistics Manager, who sets the spend policy once a season and approves exceptions.
   - User: the logistics coordinator.
 - **The recurring problem:** every race week some kit runs late, and space to the circuit is scarce. Today they
   wait, then pay for an emergency van or courier. That's expensive, and it means a whole vehicle for one crate.
@@ -191,7 +191,7 @@ confirmation.
 ## 7. The SolvaPay call (11:15–11:35)
 **Their question to the room:** "What would a customer let the agent buy, and when would they want to approve
 it?" **Our answer:** backup freight holds from approved carriers, up to £100 each, for race-week freight.
-Anything over the limit, any non-refundable transport charge and any card deposit goes to the Head of Logistics
+Anything over the limit, any non-refundable transport charge and any card deposit goes to the Logistics Manager
 for approval.
 
 **Our questions (C asks, A and B listen):**

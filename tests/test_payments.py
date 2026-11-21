@@ -64,7 +64,7 @@ def test_owner_approves_120(pay):
     a = reserve(pay, 120)["approval"]
     r = pay.decide(a.approval_id, True, by="Sarah Clarke", at=AT)
     assert r.amount_gbp == 120
-    assert r.authorisation == "Approved by Sarah Clarke (Head of Logistics) because it was over the £100 limit"
+    assert r.authorisation == "Approved by Sarah Clarke (Logistics Manager) because it was over the £100 limit"
     assert pay.active_hold("nordlink").receipt_id == r.receipt_id
     assert pay.pending_approval() is None
 

@@ -4,7 +4,7 @@
 
 Safety Car is an AI agent for race-week freight. On Monday it spots a crate that might miss the truck to the
 circuit. It then buys a cheap hold on spare space on a truck that's already going there, inside a spending
-policy the Head of Logistics set once. If the price goes over the limit, it asks her on her phone. It can never
+policy the Logistics Manager set once. If the price goes over the limit, it asks her on her phone. It can never
 approve its own request. Finally, it shows cost, arrival time and emissions against the usual emergency van.
 
 Built in one day at Hack for Impact (Imperial College London, 21 Nov 2026) for the SolvaPay payments track.
