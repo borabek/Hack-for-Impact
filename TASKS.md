@@ -51,7 +51,9 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
 - [ ] 16:15 Open the Buyer phone view on your own phone and test one approval (you tap Approve on stage)
 
 ## Pitch numbers (fill in from the app after 14:00)
-- Extraction accuracy (`python offers.py --eval`):
+- Extraction accuracy (`python offers.py --eval`): **33/35 fields (94%) across our 5 messages, 45/46 quotes verified**
+  (live, gemini-3.5-flash-lite, 21 Nov). Misses: invented a confirm-by for the Milano hire, and flagged a firmware request
+  as an instruction. It also made up one quote, and the verifier caught it. Small test set: say so.
 - Cost if late, usual plan vs ours: £1,650 (SwiftVan emergency van) vs £400 (£60 Nordlink hold + £340 transport).
   Expected cost at 35%: £577.50 waiting vs £179 holding.
 - Arrival and spare hours: ours Thu 09:00 CET, 9 h before the Thu 18:00 CET deadline. The van arrives Wed 14:00 CET
@@ -61,8 +63,7 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
   unverified); 1 dedicated cross-border trip avoided.
 - Break-even probability (£60 and £120): 4.6% and 9.2%.
 - £120 scenario, cost if late and expected cost: £460 if late, £239 expected (at 35%).
-- (Replayed run, no key: 38/38 quotes verified against the original messages. The accuracy line above still
-  needs `python offers.py --eval` with an LLM key in `.env`.)
+- (Replayed run, no key: 38/38 quotes verified against the original messages.)
 - Customer quote:
 - SolvaPay quote:
 

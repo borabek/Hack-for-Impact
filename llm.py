@@ -21,7 +21,7 @@ except Exception:  # python-dotenv missing: env vars still work
 DEFAULT_MODELS = {
     "anthropic": "claude-opus-5-5",
     "openai": "gpt-4.1",
-    "gemini": "gemini-3.8-flash",
+    "gemini": "gemini-3.5-flash-lite",  # the larger flash models were overloaded on the free tier
 }
 KEY_VARS = {
     "anthropic": ["ANTHROPIC_API_KEY"],
