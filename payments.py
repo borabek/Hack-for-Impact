@@ -216,6 +216,11 @@ class Payments:
         self._save()
         return decision
 
+    def preview_policy(self, merchant: str, amount: float, purpose: str, at: Optional[datetime] = None) -> PolicyDecision:
+        """Same rules as check_policy, but writes nothing (for wording an explanation or a UI preview)."""
+        self._load()
+        return self._check(merchant, amount, purpose, at or _now())
+
     def reserve(self, *, offer_id: str, merchant: str, amount: float, what_for: str, not_included: str,
                 cancellation: str, purpose: str, reason: str, at: Optional[datetime] = None) -> dict:
         at = at or _now()

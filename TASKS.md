@@ -15,11 +15,11 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
 - [ ] C: SolvaPay call notes, word for word (PLAN.md section 7).
 
 ## Person A: backend (Claude Code)
-- [ ] 11:35 PROMPT 0: scaffold + models.py
-- [ ] 11:45 PROMPT A1: payments.py + tests
-- [ ] 12:30 PROMPT A2: llm.py + offers.py + `--eval` → paste the accuracy line under "Pitch numbers"
+- [x] 11:35 PROMPT 0: scaffold + models.py (A)
+- [x] 11:45 PROMPT A1: payments.py + tests (A)
+- [x] 12:30 PROMPT A2: llm.py + offers.py + `--eval` (A). Accuracy line still needs an LLM key in `.env`.
 - [ ] 13:00 take C's final data and update any expected numbers in the tests
-- [ ] 13:15 PROMPT A3: agent.py + tests → tell B
+- [x] 13:15 PROMPT A3: agent.py + tests (A). tests/test_agent.py auto-skips until logistics.py lands, then must pass.
 - [ ] 14:00 gate (with B)
 - [ ] After the gate, PROMPT A4: Track S first (SolvaPay sandbox MCP, hard stop 15:00) → MCP server → injection test
 - [ ] 15:45 freeze
@@ -61,4 +61,15 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
 - SolvaPay quote:
 
 ## Requests (changes needed in files you don't own)
--
+- A → B (agent API for app.py, PROMPT B3):
+  - `agent.run(scn, factors, payments, p_miss=, fee_rise=, use_llm=)` returns an `AgentRun`: `steps` (icon/title/detail),
+    `options`, `offers`, `checks` (offer_id → QuoteChecks), `messages`, `files`, `sources`, `extraction`
+    ("replayed"/"llm"), `recommended`, `baseline`, `breakeven`, `decision` ("hold"/"wait"/"needs_human"),
+    `explanation`, `payment` {status, hold_id, receipt_id, approval_id}, `scenario_label` ("£60 hold"/"£120 hold"),
+    and `impact` (usual vs ours: cost if late/not late, arrival, margin, dedicated km, CO2e, headline, hours later).
+  - `agent.load_scenario()`, `agent.load_factors()`, `agent.confirm_slot(scn, factors, payments, paperwork_done=)`,
+    `agent.release_hold(scn, payments)`, `agent.confirmation_card(scn, factors, payments)` → {ref, collection, eta, ...}.
+  - Payments: `pending_approval()`, `decide(id, approve, by=scn.policy.owner)`, `last_receipt()`, `latest_hold()`,
+    `active_hold(offer_id)`, `receipts`/`holds`/`ledger`/`approvals`, `reset()`, and `preview_policy(...)` (no ledger
+    write) for the slider preview. Receipts have `kind` ("hold"/"transport").
+  - My tests expect logistics to reproduce CLAUDE.md section 8 exactly (status, arrival, margin, costs, CO2e).
