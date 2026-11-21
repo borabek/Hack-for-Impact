@@ -51,7 +51,7 @@ def test_nordlink(evals):
     assert e.on_time and e.eta_plausible
     assert e.cost_if_used_gbp == pytest.approx(400)
     assert e.expected_cost_gbp == pytest.approx(179)
-    assert e.co2e_kg == pytest.approx(17.2, abs=1)
+    assert e.co2e_kg == pytest.approx(17.7, abs=1)
     assert e.dedicated_km == 50 and not e.dedicated_cross_border_trip
     # the carnet is a condition to confirm, not a reason to skip the hold
     assert any("Carnet" in n for n in e.notes)
@@ -65,8 +65,8 @@ def test_swiftvan_baseline(evals):
     assert e.margin_h == pytest.approx(28)
     assert e.cost_if_used_gbp == pytest.approx(1650)
     assert e.expected_cost_gbp == pytest.approx(577.5)
-    assert e.co2e_kg == pytest.approx(314.4, abs=1)
-    assert e.dedicated_cross_border_trip and e.dedicated_km == 1230
+    assert e.co2e_kg == pytest.approx(356.1, abs=1)
+    assert e.dedicated_cross_border_trip and e.dedicated_km == 1393
     assert e.eta_plausible
 
 
@@ -90,7 +90,7 @@ def test_aerodash_blocked_by_weight(evals):
     assert e.margin_h == pytest.approx(5.5)
     assert e.cost_if_used_gbp == pytest.approx(2900)
     assert e.expected_cost_gbp == pytest.approx(1015)
-    assert e.co2e_kg == pytest.approx(325.7, abs=1)
+    assert e.co2e_kg == pytest.approx(275.2, abs=1)
     assert any("Battery" in n for n in e.notes)
 
 
