@@ -199,13 +199,34 @@ with st.sidebar:
     st.markdown("### 🚨 Safety Car")
     view = st.radio("View", ["Supplier ops", "Buyer phone", "Carrier", "Ledger", "Pitch"], label_visibility="collapsed")
     p_miss = st.slider("Chance the unit misses the truck", 0.0, 1.0, float(SHIP.p_miss_main_truck), 0.01, format="%.2f")
-    use_llm = st.toggle("Live AI extraction", value=False, disabled=True, help="Replayed extraction is the default so the demo can't fail on stage.")
+    try:
+        import llm  # A's provider wrapper: reads LLM_PROVIDER and the key from .env
+        HAS_LLM = llm.available()
+    except Exception:  # no llm.py (stand-ins) or a broken SDK: stay on the replayed extraction
+        HAS_LLM = False
+    st.session_state.setdefault("use_llm", False)  # off by default: replayed is the safe stage default
+    if not HAS_LLM:  # must be set before the widget is created
+        st.session_state.use_llm = False
+    st.toggle(
+        "Live AI extraction",
+        key="use_llm",
+        disabled=not HAS_LLM,
+        help="Reads the carrier messages with the AI model in .env. If a call fails, that message falls back to the replayed answers."
+        if HAS_LLM
+        else "No AI key in .env, so the demo uses the replayed (hand-checked) extraction.",
+    )
     st.session_state.setdefault("fee_rise", False)
 
     # decision preview: makes no payment
     try:
-        ev0 = lg.evaluate_all(AGENT.gather_offers(False)[0], SCN, FACTORS, p_miss) if hasattr(AGENT, "gather_offers") else None
-    except Exception:
+        ev0 = None
+        if hasattr(AGENT, "gather_offers"):
+            # replayed offers only: the preview runs on every slider move, so no AI calls here
+            got = AGENT.gather_offers(False, False)
+            offers0 = list(got["offers"].values()) if isinstance(got, dict) else list(got[0])
+            ev0 = lg.evaluate_all(offers0, SCN, FACTORS, p_miss)
+    except Exception as exc:
+        print(f"[app] decision preview: falling back to expected_offers.json ({type(exc).__name__}: {exc})", file=sys.stderr)
         ev0 = None
     if ev0 is None:
         raw = json.loads((DATA / "expected_offers.json").read_text(encoding="utf-8"))
@@ -231,7 +252,9 @@ with st.sidebar:
 
 def do_run(fee_rise: bool) -> None:
     st.session_state.fee_rise = fee_rise
-    st.session_state.run = AGENT.run(SCN, FACTORS, PAY, p_miss=p_miss, fee_rise=fee_rise, use_llm=False)
+    use_llm = bool(st.session_state.get("use_llm"))
+    with st.spinner("Reading the carrier messages with the AI model…" if use_llm else "Running the agent…"):
+        st.session_state.run = AGENT.run(SCN, FACTORS, PAY, p_miss=p_miss, fee_rise=fee_rise, use_llm=use_llm)
 
 
 def do_decide(approval_id: str, approve: bool) -> None:
