@@ -22,6 +22,12 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
 - [x] 13:15 PROMPT A3: agent.py + tests (A). tests/test_agent.py auto-skips until logistics.py lands, then must pass.
 - [x] 14:00 gate (with B): fresh clone, no `.env`, 71 tests pass, demo path works end to end
 - [ ] After the gate, PROMPT A4: Track S first (SolvaPay sandbox MCP, hard stop 15:00) → MCP server → injection test
+  - [x] Track S done (A, 13:02): carrier-mcp/ runs on SolvaPay's sandbox. Verified live: signed-in buyer calls
+    `reserve_hold` → SolvaPay paywall (`activation_required` + checkout link) → buyer pays GBP 60 with a test card →
+    same call returns booking `NL-417-H-ZA07-2AB8` (held until Tue 18:00 UK, transport GBP 340 not included).
+    Pitch line: "The carrier's side already runs on SolvaPay's sandbox: the hold is a paid MCP tool."
+    Clip still to record (run steps: carrier-mcp/README.md). Note: SolvaPay showed the balance as ~£72 after a
+    £60 top-up (likely VAT/display); don't quote that number.
 - [ ] 15:45 freeze
 
 ## Person B: logistics + UI (Claude Code)
