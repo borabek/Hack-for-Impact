@@ -44,6 +44,13 @@
 15. **Is the SolvaPay part real?** The carrier's hold runs as a paid MCP tool on SolvaPay's sandbox: paywall,
     test payment, booking ref. The buyer side is simulated the way buyer accounts work (early access).
 
+16. **How does SolvaPay make money from this?** (C, or A if it's technical) "Every hold is two SolvaPay
+    transactions: the supplier's agent pays from a SolvaPay buyer account, and the carrier gets paid through a
+    SolvaPay merchant tool. The £340 transport is a third if the slot is used, and our commission is collected
+    through SolvaPay too. And both sides of a new market join SolvaPay at once; the Stockholm test is the proof
+    their buyer accounts need." Don't quote a take rate: ask them theirs. If pushed: today the carrier side runs on
+    the sandbox; the buyer side is simulated the way buyer accounts work (early access).
+
 ## From PLAN.md §5 (short versions)
 - **Why AI at all?** Quotes come by email, WhatsApp and PDF, and the terms that matter are in the small print.
 - **What about customs?** The ATA Carnet: the agent flags the unit isn't listed, and confirmation is blocked
