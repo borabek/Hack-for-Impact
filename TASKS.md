@@ -26,7 +26,7 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
     `reserve_hold` → SolvaPay paywall (`activation_required` + checkout link) → buyer pays GBP 60 with a test card →
     same call returns booking `NL-417-H-ZA07-2AB8` (held until Tue 18:00 UK, transport GBP 340 not included).
     Pitch line: "The carrier's side already runs on SolvaPay's sandbox: the hold is a paid MCP tool."
-    Clip recorded by A (13:35): paywall -> test payment -> booking. Use it in the pitch or Q&A. Note: SolvaPay showed the balance as ~£72 after a
+    Clip TO RETAKE (A): the 13:35 recording didn't save. Paywall -> test payment -> booking, before 15:45. Note: SolvaPay showed the balance as ~£72 after a
     £60 top-up (likely VAT/display); don't quote that number.
   - [x] MCP server done (A): `mcp_server.py` with get_shipment / check_options / run_safety_car / ledger, no approve
     tool (tested over stdio). Claude Desktop config in README. Clip of Claude Desktop calling run_safety_car still to record.
