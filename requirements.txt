@@ -1,0 +1,9 @@
+streamlit>=1.40
+pydantic>=2
+rapidfuzz>=3
+pandas>=2
+altair>=5
+python-dotenv>=1
+pytest>=8
+mcp>=1
+anthropic>=0.40
