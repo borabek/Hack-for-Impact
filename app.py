@@ -149,7 +149,7 @@ h1, h2, h3, h4 {{letter-spacing: -0.02em;}}
 .kpis {{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:2px 0 16px;}}
 .kpi {{background:#fff;border:1px solid #E3E6EB;border-radius:14px;padding:14px 16px;box-shadow:0 1px 2px rgba(16,24,40,.04);}}
 .kpi .label {{font-size:0.72rem;letter-spacing:.08em;text-transform:uppercase;color:{SLATE};font-weight:600;}}
-.kpi .value {{font-size:1.55rem;font-weight:800;color:#0B1220;margin-top:4px;line-height:1.15;white-space:nowrap;}}
+.kpi .value {{font-size:clamp(1.05rem,1.6vw,1.55rem);font-weight:800;color:#0B1220;margin-top:4px;line-height:1.15;overflow-wrap:anywhere;}}
 .kpi .note {{font-size:0.8rem;color:{SLATE};margin-top:4px;}}
 .kpi.red {{border-top:3px solid {RED};}} .kpi.green {{border-top:3px solid {GREEN};}}
 .kpi.amber {{border-top:3px solid {AMBER};}} .kpi.slate {{border-top:3px solid #0B1220;}}
