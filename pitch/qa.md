@@ -1,5 +1,10 @@
 # Q&A sheet: answer in one or two sentences, then stop
 
+**Who answers.** One person per question; the others stay quiet. Two people answering makes both sound weaker.
+- **A:** the AI, trust and safety (AI wrong? overspend? injection? MCP and SolvaPay sandbox?)
+- **B:** logistics and numbers (baseline, deadline, drivers' hours, CO2e, slider, empty-return toggle). B is at the laptop.
+- **C:** customer, business, Stockholm (who pays, why again, first customer, regulation, liability)
+
 ## The judges' known questions
 1. **What baseline did you use?** The organisers' own framing: wait for the bench test, then send an emergency
    dedicated van (the SwiftVan quote, £1,650). Prices are illustrative and labelled that way.
