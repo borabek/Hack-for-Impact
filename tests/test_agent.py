@@ -164,5 +164,6 @@ def test_impact_numbers(pay):
     assert imp["usual"]["cost_if_late_gbp"] == pytest.approx(1650)
     assert imp["ours"]["margin_h"] == pytest.approx(9)
     assert imp["arrives_later_than_usual_h"] == pytest.approx(19)
-    assert imp["ours"]["co2e_kg"] == pytest.approx(17.2, abs=1)
-    assert imp["usual"]["co2e_kg"] == pytest.approx(314.4, abs=1)
+    # C's final data (21 Nov): MK -> Monza 1,393 km (Google Maps), Daventry -> Monza ~1,433 km.
+    assert imp["ours"]["co2e_kg"] == pytest.approx(17.7, abs=1)
+    assert imp["usual"]["co2e_kg"] == pytest.approx(356.1, abs=1)

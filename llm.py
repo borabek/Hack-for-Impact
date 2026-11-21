@@ -21,7 +21,7 @@ except Exception:  # python-dotenv missing: env vars still work
 DEFAULT_MODELS = {
     "anthropic": "claude-opus-5-5",
     "openai": "gpt-4.1",
-    "gemini": "gemini-2.5-flash",
+    "gemini": "gemini-3.8-flash",
 }
 KEY_VARS = {
     "anthropic": ["ANTHROPIC_API_KEY"],
@@ -126,7 +126,7 @@ def _gemini(system: str, user: str, json_mode: bool) -> str | None:
     from google import genai
     from google.genai import types
 
-    client = genai.Client(api_key=_key())
+    client = genai.Client(api_key=_key(), http_options=types.HttpOptions(timeout=TIMEOUT_S * 1000))
     cfg = dict(system_instruction=system)
     if json_mode:
         cfg["response_mime_type"] = "application/json"

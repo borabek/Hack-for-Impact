@@ -18,7 +18,7 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
 - [x] 11:35 PROMPT 0: scaffold + models.py (A)
 - [x] 11:45 PROMPT A1: payments.py + tests (A)
 - [x] 12:30 PROMPT A2: llm.py + offers.py + `--eval` (A). Accuracy line still needs an LLM key in `.env`.
-- [ ] 13:00 take C's final data and update any expected numbers in the tests
+- [x] 13:00 take C's final data and update any expected numbers in the tests (A, 12:40)
 - [x] 13:15 PROMPT A3: agent.py + tests (A). tests/test_agent.py auto-skips until logistics.py lands, then must pass.
 - [ ] 14:00 gate (with B)
 - [ ] After the gate, PROMPT A4: Track S first (SolvaPay sandbox MCP, hard stop 15:00) → MCP server → injection test
@@ -73,3 +73,11 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
     `active_hold(offer_id)`, `receipts`/`holds`/`ledger`/`approvals`, `reset()`, and `preview_policy(...)` (no ledger
     write) for the slider preview. Receipts have `kind` ("hold"/"transport").
   - My tests expect logistics to reproduce CLAUDE.md section 8 exactly (status, arrival, margin, costs, CO2e).
+- A → B (data freeze applied, 12:40): factors.json now has C's final distances and flight factor. CLAUDE.md section 8
+  CO2e column is updated: Nordlink ≈17.7 kg, SwiftVan ≈356.1 kg, Milano ≈6.4 kg, AeroDash ≈275.2 kg. Times, costs and
+  break-evens are unchanged; the van still passes the ETA plausibility check. Please use these in test_logistics.py.
+  Also: show the van's arrival as "Wed 14:00 CET" (it's computed from a UK departure, so convert to +01:00 for display).
+- A → C: C's flight distance was Heathrow → **Linate**, but AeroDash flies to **Malpensa**. I used LHR → MXP 936 km
+  (great-circle from airport coordinates; the same method gives 980 km for LHR → LIN vs your 982 km). Daventry → Monza
+  wasn't in your list: it's ≈1,433 km (MK → Monza + 40 km), still marked unverified. Please check it on Google Maps.
+  PLAN.md pitch lines now say "about 1,400 km" and "about 18 kg instead of 356".

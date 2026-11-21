@@ -16,11 +16,11 @@
       "verified": true
     },
     "short_haul_flight_kg_per_pkm": {
-      "label": "Short-haul international flight, economy, with radiative forcing",
-      "value": 0.151,
+      "label": "International short-haul flight, average passenger, with radiative forcing",
+      "value": 0.1279,
       "unit": "kgCO2e per passenger-km",
-      "source": "Approximate: UK Government conversion factors (2021 set) as listed on Climatiq. Replace with the 2025/2026 'Business travel - air' value.",
-      "verified": false
+      "source": "UK Government GHG Conversion Factors 2025 (DESNZ), business travel - air, short-haul international, average passenger, with RF (via Climatiq's copy of the 2025 flat file)",
+      "verified": true
     }
   },
   "distances_km": {
@@ -33,17 +33,17 @@
     },
     "daventry_to_monza": {
       "label": "Daventry to Monza via Dover-Calais",
-      "value": 1270,
+      "value": 1433,
       "unit": "km",
-      "source": "Approximate, verify with Google Maps",
+      "source": "Approximate: Google Maps MK -> Monza (1,393 km) + 40 km, because Daventry is about 40 km further from Dover than Milton Keynes. Verify with Google Maps",
       "verified": false
     },
     "mk_to_monza": {
       "label": "Milton Keynes to Monza via Dover-Calais",
-      "value": 1230,
+      "value": 1393,
       "unit": "km",
-      "source": "Approximate, verify with Google Maps",
-      "verified": false
+      "source": "Google Maps, 21 Nov 2026: Milton Keynes -> Dover -> Calais -> Autodromo Nazionale Monza, 1,393 km, 14 h 35 min driving (excl. breaks and crossing)",
+      "verified": true
     },
     "mk_to_lhr": {
       "label": "Milton Keynes to Heathrow",
@@ -53,11 +53,11 @@
       "verified": false
     },
     "lhr_to_mxp_flight": {
-      "label": "Heathrow to Milan Malpensa (flight)",
-      "value": 960,
+      "label": "Heathrow to Milan Malpensa (flight, great-circle)",
+      "value": 936,
       "unit": "km",
-      "source": "Approximate great-circle distance",
-      "verified": false
+      "source": "Great-circle distance from airport coordinates (LHR 51.4700N 0.4543W, MXP 45.6306N 8.7281E). Same method gives 980 km for LHR-LIN vs 982 km on airmilescalculator.com. No 8% uplift: the DESNZ factor already includes it",
+      "verified": true
     },
     "mxp_to_monza": {
       "label": "Malpensa to Monza",

@@ -56,7 +56,7 @@ Q&A moment: drag the risk slider from 2% to 35%, and the decision flips from "wa
 |---|---|---|
 | **Customer**: who decides, why pay again? | The Head of Logistics at a small race supplier sets the policy once a season; Safety Car buys holds every race weekend. A real quote from someone in the room. | C |
 | **Prototype**: what does the AI do? One purchase and who approves? | The AI reads 4 messy messages and the small print. The £60 hold is auto-booked with a receipt. At £120, Sarah approves on her phone and gets a receipt. If the unit then fails its test, Sarah approves the £340 transport and the carrier confirms the slot. | A + B |
-| **Freight impact**: usual plan vs yours? | The impact card. Headline: **1 dedicated cross-border trip avoided**. If the unit is late: £400 vs £1,650 (£460 after the £120 replay); arrives Thu 09:00 CET, 19 h after the van but 9 h before the deadline; ≈17 vs ≈314 kg CO2e as a modelled estimate (UK Government factors, boundary on screen) | B + C |
+| **Freight impact**: usual plan vs yours? | The impact card. Headline: **1 dedicated cross-border trip avoided**. If the unit is late: £400 vs £1,650 (£460 after the £120 replay); arrives Thu 09:00 CET, 19 h after the van but 9 h before the deadline; ≈18 vs ≈356 kg CO2e as a modelled estimate (UK Government factors, boundary on screen) | B + C |
 | **Next test**: what would you test with SolvaPay? | Will suppliers set a standing spend policy and let the agent book holds without asking? (Section 9) | C |
 
 ## 3. The product
@@ -94,7 +94,7 @@ no network risk). C has the Buyer phone view open on a real phone (same wifi as 
 > "It's Monday afternoon at Apex Timing, a small supplier in Milton Keynes. Their truck to Monza leaves at 7pm.
 > One timing unit is still on the test bench, with about a one-in-three chance it fails and misses the truck. The
 > garage needs it by Thursday 18:00. Today, they'd wait, and if it fails, pay £1,650 for an emergency van: a whole
-> vehicle driving about 1,200 km for one crate."
+> vehicle driving about 1,400 km for one crate."
 
 **0:30–2:00: Person B clicks, Person A narrates**
 - Click **Run**. "Safety Car reads the carriers' messages: two emails, a WhatsApp and a PDF quote. This is a replayed
@@ -116,7 +116,7 @@ confirmation.
 **2:00–3:00: Person C, with the impact card on screen**
 > "With the £120 hold, the late case costs £460 instead of £1,650 for the emergency van. The headline: one
 > dedicated cross-border trip avoided. We arrive 19 hours after the van would, but still 9 hours before the
-> deadline. Our modelled estimate is about 17 kg of CO2e instead of 314, using UK Government conversion factors,
+> deadline. Our modelled estimate is about 18 kg of CO2e instead of 356, using UK Government conversion factors,
 > with the boundary on screen. Even at £120, the hold pays for itself above a 9% chance of a miss. Suppliers pay
 > per hold, and carriers earn on space that would travel empty, every race weekend. In Stockholm we'd test one
 > thing: will suppliers set a standing spend policy and let the agent book holds without asking? Five suppliers,
@@ -283,8 +283,8 @@ isn't working by 15:00, drop it and mention it as the next step. C sets up the s
 | £100 limit, £60 hold, £120 surge | The organisers' illustrative figures |
 | £400 / £179 / 4.6% (£60 hold) and £460 / £239 / 9.2% (£120 hold) | Calculated from these figures; the impact card says which scenario it shows |
 | £340 groupage, £1,650 van, £2,900 courier, €520 hire | Illustrative carrier prices. C replaces them with real quotes or keeps the label |
-| Distances (≈1,230 km Milton Keynes → Monza, etc.) | Approximate. C checks them on Google Maps |
+| Distances (1,393 km Milton Keynes → Monza via Dover–Calais) | Google Maps, 21 Nov (verified). Daventry → Monza ≈1,433 km is still approximate |
 | HGV and van emission factors | UK Government 2025 factors (verified). The CO2e totals are modelled estimates |
-| Flight factor | Approximate (older set). C updates it |
+| Flight factor | 0.1279 kgCO2e/pkm, UK Government 2025 (verified) |
 | 35% chance of a miss | A scenario assumption (the slider shows the result at any value) |
 | Extraction accuracy | From `python offers.py --eval` (A fills this in) |
