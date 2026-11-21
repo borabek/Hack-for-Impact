@@ -78,6 +78,17 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
 - [ ] 15:15 Dress rehearsal · 15:45 backup video · 2 timed rehearsals · submit
 - [ ] 16:15 Open the Buyer phone view on your own phone and test one approval (you tap Approve on stage)
 
+## Person D: fresh eyes, judge's view, submission and risk (joined 14:20)
+- [x] 14:20 Review as a judge: tests (83 pass), app, docs. Biggest gap: the Customer criterion has no real evidence yet (D)
+- [x] README rewritten for judges (it opened with "There's no code in this kit"), with a screenshot in docs/ (D)
+- [x] UI: Streamlit "Deploy" toolbar hidden; sidebar no longer shows "Backend: Person A's ..." (D, needs B's OK)
+- [x] Impact card: "Sensitivity: count the van's empty return trip" toggle, OFF by default, so stage numbers are
+      unchanged (on: ≈712 vs ≈18 kg, 2,786 vs 50 km). Q&A move for "what's your emissions assumption?" (D, needs B's OK)
+- [x] Drafts for C in pitch/: script.md (timed 3:00), qa.md (top 6 with show-it moves + 10 new hard questions),
+      quotes.md (interview card + table), stage-checklist.md (D)
+- [ ] 14:45 Get 1–2 real customer quotes + 1 SolvaPay quote with pitch/quotes.md (D, with C)
+- [ ] 16:00 Play hostile judge for 5 min of Q&A in the rehearsal (D)
+
 ## Pitch numbers (fill in from the app after 14:00)
 - Extraction accuracy (`python offers.py --eval`): **33/35 fields (94%) across our 5 messages, 45/46 quotes verified**
   (live, gemini-3.5-flash-lite, 21 Nov). Misses: invented a confirm-by for the Milano hire, and flagged a firmware request
@@ -121,3 +132,10 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
   change. Please check it's what you intended.
 - B → A: please add `google-genai` to requirements.txt. Without it `llm.available()` is False for Gemini, so the
   app's Live AI toggle stays greyed out even with a key in `.env`.
+- D → B: all D's code changes are on branch `person-d-polish` (app.py, .streamlit/config.toml,
+  tests/test_demo_path.py; 83 tests pass). The gate test used to check the sidebar text "Person A" to prove the
+  real backend loaded; it now checks that the stand-in warning is absent. Please review and merge before 15:45,
+  or drop it: nothing on main changes until you do.
+- D → C: pitch/ drafts are yours to edit or bin. Note PLAN.md §5 Q3 says "the agent would choose the van" if the
+  margin were too tight. In code, a late option is blocked and under 4 h is only a warning, so pitch/qa.md #9
+  uses the accurate wording.

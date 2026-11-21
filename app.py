@@ -411,7 +411,9 @@ with st.sidebar:
             st.session_state.pop(k, None)
         st.rerun()
     st.markdown(
-        f'<div class="foot">Backend: {esc(BACKEND_LABEL)}<br>Fictional scenario. Prices are illustrative unless sourced.</div>',
+        f'<div class="foot">{"⚠️ Backend: " + esc(BACKEND_LABEL) + "<br>" if "stand-in" in BACKEND_LABEL else ""}'
+        "The LLM reads; code decides. Payments simulated (SolvaPay-style buyer account).<br>"
+        "Fictional scenario. Prices are illustrative unless sourced.</div>",
         unsafe_allow_html=True,
     )
 
@@ -641,6 +643,15 @@ def impact_card(run: Any) -> None:
     if hold > POLICY.per_call_limit_gbp and approved:
         scen += ", approved by Sarah"
     st.caption(f"Scenario shown: **{scen}**, {p_miss:.0%} chance of a miss.")
+    with_return = st.toggle(
+        "Sensitivity: count the van's empty return trip",
+        value=False,
+        key="impact_empty_return",
+        help="Off by default (flatters the usual plan). On: the dedicated van drives the same distance back to "
+        "Milton Keynes empty, at the same per-km factor. Our truck was going to Monza anyway.",
+    )
+    if with_return and imp["co2e_usual"] is not None and imp["km_usual"] is not None:
+        imp = {**imp, "co2e_usual": imp["co2e_usual"] * 2, "km_usual": imp["km_usual"] * 2}
     if imp["trips_avoided"]:
         st.markdown(
             '<div class="headline"><span style="font-size:1.6rem">🌍</span><div><div class="big">1 dedicated cross-border trip avoided</div>'
@@ -693,7 +704,11 @@ def impact_card(run: Any) -> None:
         st.write("**Modelled estimate, not a measurement.** UK Government GHG Conversion Factors 2025 (see the sources table).")
         st.write(f"**Safety Car:** {rec.co2e_note}")
         st.write(f"**Usual plan:** {base.co2e_note}")
-        st.write("Boundary: the first mile to the hub is included; the van's empty return trip is excluded, which flatters the usual plan.")
+        st.write(
+            "Boundary: the first mile to the hub is included; the van's empty return trip is "
+            + ("**included** (sensitivity toggle on: same distance back, same factor)." if with_return
+               else "excluded, which flatters the usual plan. Use the sensitivity toggle above to include it.")
+        )
         if rec.offer.emissions_claim:
             st.warning(
                 f"Carrier claim, unverified: \"{rec.offer.emissions_claim}\". It is per pallet at an 80% load factor, "

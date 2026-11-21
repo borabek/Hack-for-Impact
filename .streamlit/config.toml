@@ -16,3 +16,6 @@ borderColor = "#24304A"
 
 [server]
 headless = true
+
+[client]
+toolbarMode = "minimal"

@@ -71,7 +71,7 @@ def session(view=None):
 def test_full_demo_path_laptop_and_phone():
     laptop = session()
     shown = page_text(laptop) + " ".join(str(c.value) for c in laptop.caption)
-    assert "Person A" in shown, "app fell back to stand-ins: agent.py/payments.py failed to load"
+    assert "stand-in" not in shown and "code decides" in shown, "app fell back to stand-ins: agent.py/payments.py failed to load"
     button(laptop, "Reset demo").click().run()
 
     # Step 4: £60 within policy, receipt.
