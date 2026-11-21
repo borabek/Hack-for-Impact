@@ -74,10 +74,9 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
     write) for the slider preview. Receipts have `kind` ("hold"/"transport").
   - My tests expect logistics to reproduce CLAUDE.md section 8 exactly (status, arrival, margin, costs, CO2e).
 - A → B (data freeze applied, 12:40): factors.json now has C's final distances and flight factor. CLAUDE.md section 8
-  CO2e column is updated: Nordlink ≈17.7 kg, SwiftVan ≈356.1 kg, Milano ≈6.4 kg, AeroDash ≈275.2 kg. Times, costs and
+  CO2e column is updated: Nordlink ≈17.7 kg, SwiftVan ≈356.1 kg, Milano ≈6.4 kg, AeroDash ≈275.7 kg. Times, costs and
   break-evens are unchanged; the van still passes the ETA plausibility check. Please use these in test_logistics.py.
   Also: show the van's arrival as "Wed 14:00 CET" (it's computed from a UK departure, so convert to +01:00 for display).
-- A → C: C's flight distance was Heathrow → **Linate**, but AeroDash flies to **Malpensa**. I used LHR → MXP 936 km
-  (great-circle from airport coordinates; the same method gives 980 km for LHR → LIN vs your 982 km). Daventry → Monza
-  wasn't in your list: it's ≈1,433 km (MK → Monza + 40 km), still marked unverified. Please check it on Google Maps.
-  PLAN.md pitch lines now say "about 1,400 km" and "about 18 kg instead of 356".
+- A → C: v2 data applied (Daventry → Monza 1,426 km, LHR → MXP 938 km). One distance is still unverified: the first
+  mile **Milton Keynes → Daventry hub (50 km)**. Please send it from Google Maps. PLAN.md pitch lines now say
+  "about 1,400 km" and "about 18 kg instead of 356".

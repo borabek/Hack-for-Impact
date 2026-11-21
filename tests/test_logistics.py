@@ -90,7 +90,7 @@ def test_aerodash_blocked_by_weight(evals):
     assert e.margin_h == pytest.approx(5.5)
     assert e.cost_if_used_gbp == pytest.approx(2900)
     assert e.expected_cost_gbp == pytest.approx(1015)
-    assert e.co2e_kg == pytest.approx(275.2, abs=1)
+    assert e.co2e_kg == pytest.approx(275.7, abs=1)
     assert any("Battery" in n for n in e.notes)
 
 

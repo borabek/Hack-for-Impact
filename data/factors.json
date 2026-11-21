@@ -33,10 +33,10 @@
     },
     "daventry_to_monza": {
       "label": "Daventry to Monza via Dover-Calais",
-      "value": 1433,
+      "value": 1426,
       "unit": "km",
-      "source": "Approximate: Google Maps MK -> Monza (1,393 km) + 40 km, because Daventry is about 40 km further from Dover than Milton Keynes. Verify with Google Maps",
-      "verified": false
+      "source": "Google Maps, 21 Nov 2026: Daventry -> Dover -> Calais -> Autodromo Nazionale Monza, 1,426 km, about 15 h driving (excl. breaks and crossing)",
+      "verified": true
     },
     "mk_to_monza": {
       "label": "Milton Keynes to Monza via Dover-Calais",
@@ -54,9 +54,9 @@
     },
     "lhr_to_mxp_flight": {
       "label": "Heathrow to Milan Malpensa (flight, great-circle)",
-      "value": 936,
+      "value": 938,
       "unit": "km",
-      "source": "Great-circle distance from airport coordinates (LHR 51.4700N 0.4543W, MXP 45.6306N 8.7281E). Same method gives 980 km for LHR-LIN vs 982 km on airmilescalculator.com. No 8% uplift: the DESNZ factor already includes it",
+      "source": "airmilescalculator.com/distance/lhr-to-mxp: 937.9 km great-circle. No 8% uplift: the DESNZ factor already includes it",
       "verified": true
     },
     "mxp_to_monza": {

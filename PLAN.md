@@ -283,7 +283,7 @@ isn't working by 15:00, drop it and mention it as the next step. C sets up the s
 | £100 limit, £60 hold, £120 surge | The organisers' illustrative figures |
 | £400 / £179 / 4.6% (£60 hold) and £460 / £239 / 9.2% (£120 hold) | Calculated from these figures; the impact card says which scenario it shows |
 | £340 groupage, £1,650 van, £2,900 courier, €520 hire | Illustrative carrier prices. C replaces them with real quotes or keeps the label |
-| Distances (1,393 km Milton Keynes → Monza via Dover–Calais) | Google Maps, 21 Nov (verified). Daventry → Monza ≈1,433 km is still approximate |
+| Distances (1,393 km Milton Keynes → Monza via Dover–Calais) | Google Maps, 21 Nov (verified). Daventry → Monza 1,426 km (verified); MK → Daventry 50 km still approximate |
 | HGV and van emission factors | UK Government 2025 factors (verified). The CO2e totals are modelled estimates |
 | Flight factor | 0.1279 kgCO2e/pkm, UK Government 2025 (verified) |
 | 35% chance of a miss | A scenario assumption (the slider shows the result at any value) |

@@ -299,9 +299,9 @@ and ledger. **No approve tool.** Keep stdout free for the protocol.
 | Nordlink groupage hold | bookable_now | Thu 09:00 CET | 9 h | £400 (£60 + £340) | £179 | ≈17.7 kg |
 | SwiftVan dedicated van (baseline) | fallback | Wed 14:00 CET | 28 h | £1,650 | £577.50 | ≈356.1 kg |
 | Milano Event Tech hire | conditional (firmware) | Wed 16:00 CET | 26 h | ≈£447 | ≈£157 | ≈6.4 kg |
-| AeroDash air courier | blocked (45 kg > 32 kg) | Thu 12:30 CET | 5.5 h | £2,900 | £1,015 | ≈275.2 kg |
+| AeroDash air courier | blocked (45 kg > 32 kg) | Thu 12:30 CET | 5.5 h | £2,900 | £1,015 | ≈275.7 kg |
 
-- CO2e uses C's final data (21 Nov): MK→Monza 1,393 km (Google Maps), Daventry→Monza ≈1,433 km, LHR→MXP 936 km,
+- CO2e uses C's final data (21 Nov): MK→Monza 1,393 km (Google Maps), Daventry→Monza 1,426 km, LHR→MXP 938 km,
   flight factor 0.1279 (DESNZ 2025). Times, costs and break-evens are unchanged.
 - Break-even: 4.6% at £60, 9.2% at £120.
 - £60 → booked within policy. £120 → approval request. Owner approves → £120 receipt. The agent trying to approve
