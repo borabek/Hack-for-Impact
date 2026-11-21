@@ -4,7 +4,7 @@
 
 Safety Car is an AI agent for race-week freight. On Monday it spots a crate that might miss the truck to the
 circuit. It then buys a cheap hold on spare space on a truck that's already going there, inside a spending
-policy the Logistics Manager set once. If the price goes over the limit, it asks her on her phone. It can never
+policy Sarah, the Logistics Manager, set once. If the price goes over the limit, it asks her on her phone. It can never
 approve its own request. Finally, it shows cost, arrival time and emissions against the usual emergency van.
 
 Built in one day at Hack for Impact (Imperial College London, 21 Nov 2026) for the SolvaPay payments track.
@@ -38,7 +38,7 @@ Monza. The garage needs it by Thu 18:00 CET.
   (`python offers.py --eval`). In testing the model once made up a quote, and the verifier caught it. It's a
   small test set, and we say so.
 - **Limits live in code** (`payments.py`). A carrier message can't raise them, and the agent has no approve path:
-  `decide()` raises `PermissionError` for anyone but the owner.
+  `decide()` raises `PermissionError` for anyone but Sarah, the Logistics Manager.
 - **Every number has a source** (`data/factors.json`) or an "illustrative" label.
 - **83 tests** (`pytest -q`), including one that drives the whole demo through the app with a laptop session and
   a phone session, and a prompt-injection test.

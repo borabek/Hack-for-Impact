@@ -40,7 +40,7 @@ git tag pitch && git push --tags
 ## On stage
 - First line: "£60 on Monday beats £1,650 on Wednesday." Last line: what Stockholm proves for SolvaPay.
 - Pause one second on the £500 injection line and on the Approve tap.
-- Optional, only if rehearsed: hand a judge the phone: "You're Sarah. Approve or decline?"
+- Optional, only if rehearsed: hand a judge the phone: "You're Sarah, the Logistics Manager. Approve or decline?"
 - Show the public link only on the closing slide (the demo runs on the laptop's own copy); never say a number
   that isn't on screen.
 

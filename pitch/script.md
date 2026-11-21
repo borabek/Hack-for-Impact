@@ -9,7 +9,7 @@ Never say a number that isn't on screen. Every number below is from the app.
 
 ## 0:00–0:30 · C: the buyer and the shipment at risk (no clicks)
 > "£60 on Monday beats £1,650 on Wednesday. Here's why.
-> It's Monday afternoon at Apex Timing, a small supplier in Milton Keynes. Their truck to Monza leaves at 7pm.
+> It's Monday afternoon at Apex Timing, a small supplier in Milton Keynes. Meet Sarah, the Logistics Manager. Their truck to Monza leaves at 7pm.
 > One timing unit is still on the test bench, with about a one-in-three chance it fails and misses the truck. The
 > garage needs it by Thursday 18:00. Today they'd wait, and if it fails, pay £1,650 for an emergency van: a whole
 > vehicle driving about 1,400 km for one crate."

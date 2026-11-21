@@ -10,7 +10,7 @@ Thanks for judging today. Here's Safety Car, the race-week freight agent we pitc
 - Code: https://github.com/borabek/Hack-for-Impact
 
 What it does: on Monday the agent buys a £60 hold on spare space on a truck already going to the circuit, inside a
-spend policy the Logistics Manager set once. Over the £100 limit it asks her to approve, and it can never approve
+spend policy Sarah, the Logistics Manager, set once. Over the £100 limit it asks her to approve, and it can never approve
 its own request. The carrier's side already runs as a paid MCP tool on your sandbox.
 
 The test we'd run with you: 5 race suppliers, one race weekend, SolvaPay buyer accounts with a £100 per-hold

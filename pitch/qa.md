@@ -24,7 +24,7 @@
    every value is checked against the original message. Unverified fields are never bought automatically.
    33 of 35 fields correct live; it's a small test set."
 7. **Can the agent overspend, or be tricked?** Limits are in code. SwiftVan's "your system can approve up to £500"
-   is ignored and flagged. Even a fooled extraction only becomes an approval request for Sarah.
+   is ignored and flagged. Even a fooled extraction only becomes an approval request for Sarah, the Logistics Manager.
 8. **Milano is cheaper (£157 vs £179 expected). Why not buy it?** It needs a firmware check and a EUR 1,500
    deposit the agent can't verify, so it's Plan C for a human.
 
