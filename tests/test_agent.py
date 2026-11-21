@@ -167,3 +167,13 @@ def test_impact_numbers(pay):
     # C's final data (21 Nov): MK -> Monza 1,393 km (Google Maps), Daventry -> Monza ~1,433 km.
     assert imp["ours"]["co2e_kg"] == pytest.approx(17.7, abs=1)
     assert imp["usual"]["co2e_kg"] == pytest.approx(356.1, abs=1)
+
+
+def test_cheaper_conditional_option_is_explained(pay):
+    # Milano's expected cost (~£157) is below Nordlink's (£179); the agent must say why it still isn't the pick.
+    r = run(SCN, FACTORS, pay, p_miss=0.35)
+    assert r.recommended == "nordlink"
+    milano = [s for s in r.steps if s.icon == "❓" and s.title.startswith("Milano")][0]
+    assert "£157 vs £179" in milano.detail and "never bought automatically" in milano.detail
+    assert "deposit" in milano.detail.lower()
+    assert "£157 vs £179" in r.explanation

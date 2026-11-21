@@ -127,19 +127,33 @@ def _fallback_phrase(base: Optional[OptionEval]) -> str:
 def _reasons(ev: OptionEval, want_conditional: bool) -> str:
     if not want_conditional:
         return "; ".join(ev.issues) or "not viable"
-    keys = ("firmware", "compatib", "protocol", "plausibility", "human")
+    keys = ("firmware", "compatib", "protocol", "plausibility", "human", "deposit")
     picked = [n for n in ev.notes if any(k in n.lower() for k in keys)] or ev.notes or ["needs a human check"]
-    picked = [re.sub(r"^needs a human( check)?:\s*", "", n, flags=re.I) for n in picked]
+    label = r"^((needs a human( check)?|deposit would need approval|check before booking|deposit):\s*)+"
+    picked = [re.sub(r"\s*\(would need approval\)", "", re.sub(label, "", n, flags=re.I)).rstrip(". ")
+              for n in picked]
     return "; ".join(dict.fromkeys(picked))
 
 
-def _plan_c(options: list[OptionEval]) -> str:
+def cheaper_but_unverified(ev: OptionEval, rec: Optional[OptionEval]) -> str:
+    """Why a conditional option that looks cheaper on expected cost still isn't bought automatically."""
+    if rec is None or ev.expected_cost_gbp is None or rec.expected_cost_gbp is None \
+            or ev.expected_cost_gbp >= rec.expected_cost_gbp:
+        return ""
+    return (f"It looks cheaper on expected cost ({money(round(ev.expected_cost_gbp))} vs "
+            f"{money(round(rec.expected_cost_gbp))}), but it depends on conditions the agent can't verify, "
+            f"so it is never bought automatically.")
+
+
+def _plan_c(options: list[OptionEval], rec: Optional[OptionEval] = None) -> str:
     out = []
     for ev in options:
         if ev.status == "conditional" and ev.arrival is not None:
-            out.append(f"Plan C: {ev.offer.carrier} could have a unit at Monza by {logistics.fmt(ev.arrival)} for "
-                       f"about {money(round(ev.cost_if_used_gbp or 0))}, but it needs a human check first "
-                       f"({_reasons(ev, True)}).")
+            s = (f"Plan C: {ev.offer.carrier} could have a unit at Monza by {logistics.fmt(ev.arrival)} for "
+                 f"about {money(round(ev.cost_if_used_gbp or 0))}, but it needs a human check first "
+                 f"({_reasons(ev, True)}).")
+            extra = cheaper_but_unverified(ev, rec)
+            out.append(f"{s} {extra}" if extra else s)
     return " ".join(out)
 
 
@@ -151,7 +165,7 @@ def explain(scn: Scenario, rec: OptionEval, base: Optional[OptionEval], breakeve
     body = (f"If the {item} misses the truck ({pct(p_miss)} estimated), this slot still gets it to Monza by "
             f"{logistics.fmt(rec.arrival)} for {money(rec.price_gbp)} more, instead of {_fallback_phrase(base)}. "
             f"The hold pays for itself above a {pct(breakeven)} chance of a miss.")
-    plan_c = _plan_c(options)
+    plan_c = _plan_c(options, rec)
     if over_limit:
         verb = "now wants" if fee_rise else "wants"
         parts = [f"{who} {verb} {money(hold)} to hold the slot, above your {money(limit)} per-hold limit, so I "
@@ -284,6 +298,12 @@ def run(scn: Scenario, factors: dict, payments: Payments, *, p_miss: float, fee_
 
     r.recommended = rec.offer.offer_id
     r.scenario_label = f"{money(rec.offer.hold_fee_gbp)} hold"
+    for ev in options:  # say on the ❓ step why a cheaper-looking conditional option isn't the pick
+        extra = cheaper_but_unverified(ev, rec) if ev.status == "conditional" else ""
+        if extra:
+            for st_ in steps:
+                if st_.icon == "❓" and st_.title.startswith(ev.offer.carrier or "?"):
+                    st_.detail = f"{st_.detail.rstrip('. ')}. {extra}"
     fallback_cost = base.cost_if_used_gbp if base and base.cost_if_used_gbp else None
     if fallback_cost is None or fallback_cost <= (rec.price_gbp or 0):
         r.breakeven = 1.0  # the hold can never pay off against this fallback
