@@ -7,3 +7,4 @@ python-dotenv>=1
 pytest>=8
 mcp>=1
 anthropic>=0.40
+google-genai>=1  # Gemini (free tier) for live extraction; keep live AI off on stage
