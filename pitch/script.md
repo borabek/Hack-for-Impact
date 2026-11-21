@@ -1,8 +1,9 @@
 # Pitch script: 3 minutes + 2 minutes Q&A
 
 Before you start: demo laptop, app on **Supplier ops**, **Reset demo** pressed, browser zoom 125%, live AI OFF.
-The phone has the Buyer phone view open (same Wi-Fi, laptop's Network URL). **Don't show the public link during
-the pitch:** a judge opening it mid-demo shares the same state. Put it in the submission only.
+The phone has the Buyer phone view open (same Wi-Fi, laptop's Network URL). **The public link is on the closing slide
+only:** the stage demo runs on the laptop's own copy, so judges trying the public app can't touch it. Don't run the
+demo itself on the public app (plan B) while the link is on screen.
 
 Never say a number that isn't on screen. Every number below is from the app.
 

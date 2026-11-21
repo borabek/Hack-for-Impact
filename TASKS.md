@@ -107,8 +107,8 @@ Still open:
   distances (mk_to_lhr, mxp_to_monza, milan_rental_to_monza) are still `verified: false`; slides; submission details;
   16:15 phone test.
 - Not built (optional A4 stretch, skip now): LLM rewording of the explanation, "paste a carrier message" box.
-- Rule: don't show the public link during the pitch. Every visitor shares one state, and someone already left a
-  pending £120 approval on it at ~14:25.
+- Rule: the public link appears only on the closing slide. The stage demo runs on the laptop's own copy; every
+  public visitor shares one state (someone left a pending £120 approval on it at ~14:25), so never demo on it.
 
 ## Requests (changes needed in files you don't own)
 - Team → C (14:55): **make your slides match the app** (decided: the app's numbers win, no data change before the
