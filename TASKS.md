@@ -95,6 +95,21 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
 - Customer quote:
 - SolvaPay quote:
 
+## Status check (14:30): what's done, what's left
+Done on main (9e1a3c0, 83 tests): the whole demo path (CLAUDE.md §2 steps 1–7), all 5 views, pit-window chart,
+assumptions table, MCP server + injection test, Track S sandbox, live link, README for judges, pitch/script.md +
+pitch/qa.md, a van empty-return toggle on the impact card, and internal "Person A" text/Deploy toolbar hidden.
+Still open:
+- A: retake the SolvaPay clip (servers are running); Claude Desktop clip (optional); at 15:45 tag `pitch` and push.
+- B: practise the clicks; check at 1280×720 / 125% that the impact card fits (B4); restart the demo laptop app
+  after the 15:45 pull (app.py and config changed: toolbar + toggle).
+- C: customer quote + SolvaPay quote (Pitch numbers below); MK → Daventry 50 km and the other approximate
+  distances (mk_to_lhr, mxp_to_monza, milan_rental_to_monza) are still `verified: false`; slides; submission details;
+  16:15 phone test.
+- Not built (optional A4 stretch, skip now): LLM rewording of the explanation, "paste a carrier message" box.
+- Rule: don't show the public link during the pitch. Every visitor shares one state, and someone already left a
+  pending £120 approval on it at ~14:25.
+
 ## Requests (changes needed in files you don't own)
 - A → B (agent API for app.py, PROMPT B3):
   - `agent.run(scn, factors, payments, p_miss=, fee_rise=, use_llm=)` returns an `AgentRun`: `steps` (icon/title/detail),
@@ -121,3 +136,8 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
   change. Please check it's what you intended.
 - B → A: please add `google-genai` to requirements.txt. Without it `llm.available()` is False for Gemini, so the
   app's Live AI toggle stays greyed out even with a key in `.env`.
+  → A: done in ba361d0.
+- A → B (FYI, 74cfe3a, done at the team's request): small app.py change. The sidebar no longer shows "Backend:
+  Person A's ..." (it still shows a warning if the stand-ins load), and the impact card has a "Count the van's
+  empty return trip" toggle (off by default). Also `.streamlit/config.toml` has `toolbarMode = "minimal"`.
+  The gate test now asserts that no "Person A" text is visible. Please pull before 15:45 and restart the app.
