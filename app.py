@@ -411,7 +411,9 @@ with st.sidebar:
             st.session_state.pop(k, None)
         st.rerun()
     st.markdown(
-        f'<div class="foot">Backend: {esc(BACKEND_LABEL)}<br>Fictional scenario. Prices are illustrative unless sourced.</div>',
+        '<div class="foot">'
+        + ("" if PAYMENTS_MOD.__name__ == "payments" else f"Backend: {esc(BACKEND_LABEL)}<br>")
+        + "Fictional scenario. Prices are illustrative unless sourced.</div>",
         unsafe_allow_html=True,
     )
 
@@ -641,6 +643,11 @@ def impact_card(run: Any) -> None:
     if hold > POLICY.per_call_limit_gbp and approved:
         scen += ", approved by Sarah"
     st.caption(f"Scenario shown: **{scen}**, {p_miss:.0%} chance of a miss.")
+    # Honesty toggle: the usual plan's van has to drive home empty. Off by default (the conservative number).
+    if st.toggle("Count the van's empty return trip", key="empty_return",
+                 help="The emergency van drives back to the UK empty. Same distance and the same van factor "
+                      "(an approximation: an empty van burns a little less). Off by default, which flatters the usual plan."):
+        imp = dict(imp, co2e_usual=imp["co2e_usual"] * 2, km_usual=imp["km_usual"] * 2)
     if imp["trips_avoided"]:
         st.markdown(
             '<div class="headline"><span style="font-size:1.6rem">🌍</span><div><div class="big">1 dedicated cross-border trip avoided</div>'
@@ -693,7 +700,11 @@ def impact_card(run: Any) -> None:
         st.write("**Modelled estimate, not a measurement.** UK Government GHG Conversion Factors 2025 (see the sources table).")
         st.write(f"**Safety Car:** {rec.co2e_note}")
         st.write(f"**Usual plan:** {base.co2e_note}")
-        st.write("Boundary: the first mile to the hub is included; the van's empty return trip is excluded, which flatters the usual plan.")
+        if st.session_state.get("empty_return"):
+            st.write("Boundary: the first mile to the hub is included; the van's empty return trip is **included** "
+                     "(same distance and van factor, so the usual plan's km and CO2e are doubled).")
+        else:
+            st.write("Boundary: the first mile to the hub is included; the van's empty return trip is excluded, which flatters the usual plan.")
         if rec.offer.emissions_claim:
             st.warning(
                 f"Carrier claim, unverified: \"{rec.offer.emissions_claim}\". It is per pallet at an 80% load factor, "
