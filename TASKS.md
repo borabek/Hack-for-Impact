@@ -39,8 +39,17 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
 - [x] 12:40 PROMPT B2: app.py v1 on fake_run() (B)
 - [x] 13:45 PROMPT B3: wire in agent.run, buttons and phone panel (B). app.py reads A's AgentRun (offer ids, offers dict).
 - [x] 14:00 gate (with A): fresh clone, no `.env`, 71 tests pass, demo path works end to end
-- [ ] After the gate, PROMPT B4: polish + Pitch view. Pitch view is built; polish still open.
-- [ ] 15:45 freeze; practise the clicks until they're automatic
+- [x] After the gate, PROMPT B4: polish + Pitch view (B). UI redesign in 84e3801: dark sidebar, hero, KPI tiles,
+      agent timeline, phone frame, ticket receipts, options table with PICK tag, impact comparison. Also: Live AI
+      toggle follows the key in `.env` (needs `google-genai` for Gemini; keep it OFF on stage), slider preview reads
+      A's `gather_offers`, Pitch van distance from factors.json (1,393 km). 81 tests pass.
+- [ ] 15:45 freeze: final `git pull` + pytest + restart the app on the demo laptop, then no more pulls unless a
+      demo-breaking fix is agreed. A: please freeze agent.py / models.py / payments.py too (MCP work can continue).
+- [ ] Practise the clicks until they're automatic: Reset → Run → Replay £120 → Approve → Paperwork →
+      Bench test failed → Approve £340 → Impact → AeroDash "32 kg" line → Reset.
+- [ ] Check the UI on the projector / demo screen (Cmd + to zoom if text is small).
+- [ ] With C at 16:15: phone on the same Wi-Fi opens the laptop's "Network URL" (port 8501) → Buyer phone → Approve.
+      After C approves, press R on the laptop page to refresh (don't reload the tab: it clears the agent log).
 
 ## Person C: data, evidence, customer, pitch (claude.ai chat, no code)
 - [ ] 11:35 Ask the organisers how and where to submit, by when, and what's required
@@ -101,3 +110,5 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
 - B → A (FYI, already pushed in e4d7673): tests/test_agent.py's `from agent import ...` line had slipped into its
   `# noqa` comment, so the file failed to load (NameError: load_scenario). B restored the import line, no other
   change. Please check it's what you intended.
+- B → A: please add `google-genai` to requirements.txt. Without it `llm.available()` is False for Gemini, so the
+  app's Live AI toggle stays greyed out even with a key in `.env`.
