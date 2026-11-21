@@ -211,7 +211,8 @@ def _verified_fields(checks: list[QuoteCheck]) -> dict[str, bool]:
 
 
 def run(scn: Scenario, factors: dict, payments: Payments, *, p_miss: float, fee_rise: bool = False,
-        use_llm: bool = False) -> AgentRun:
+        use_llm: bool = False, dry_run: bool = False) -> AgentRun:
+    """dry_run=True: decide and explain, but never charge, request approval or write the ledger."""
     g = gather_offers(use_llm, fee_rise)
     offers, checks = g["offers"], g["checks"]
     r = AgentRun(offers=offers, checks=checks, sources=g["sources"], messages=g["messages"], files=g["files"],
@@ -315,6 +316,30 @@ def run(scn: Scenario, factors: dict, payments: Payments, *, p_miss: float, fee_
     if any("carnet" in n.lower() for n in rec.notes) or (
             not s.carnet_listed and any("carnet" in x.lower() for x in offer.limitations)):
         not_included += ". Before confirming: the unit must be on the ATA Carnet, or a commercial invoice sent"
+    if dry_run:  # preview: same rules, nothing charged, nothing written to the ledger
+        r.explanation = "Preview, nothing charged: " + r.explanation
+        held = payments.active_hold(offer.offer_id)
+        if held:
+            r.payment = {"status": "already_held", "amount_gbp": held.amount_gbp, "hold_id": held.hold_id,
+                         "merchant": held.merchant, "preview_only": True}
+            steps.append(Step(icon="👀", title=f"A {money(held.amount_gbp)} hold is already active",
+                              detail=f"Hold {held.hold_id}: running the agent would not charge again."))
+            _next_actions(r, scn, rec)
+            return r
+        r.payment = {"status": {"allowed": "would_book", "needs_approval": "would_ask_approval",
+                                "denied": "would_be_denied"}[preview.status],
+                     "amount_gbp": offer.hold_fee_gbp, "merchant": offer.carrier, "preview_only": True}
+        if preview.status == "allowed":
+            steps.append(Step(icon="👀", title=f"Would book a {money(offer.hold_fee_gbp)} hold with {offer.carrier}",
+                              detail=f"Within {scn.policy.owner}'s {money(scn.policy.per_call_limit_gbp)} policy. "
+                                     f"Preview only: nothing charged, no receipt."))
+        elif preview.status == "needs_approval":
+            steps.append(Step(icon="👀", title=f"Would ask {scn.policy.owner} to approve {money(offer.hold_fee_gbp)}",
+                              detail="; ".join(preview.reasons) + ". Preview only: no request sent."))
+        else:
+            steps.append(Step(icon="👀", title="Would be blocked by policy", detail="; ".join(preview.reasons)))
+        _next_actions(r, scn, rec)
+        return r
     res = payments.reserve(
         offer_id=offer.offer_id, merchant=offer.carrier, amount=offer.hold_fee_gbp,
         what_for=f"Holding fee: reserves {offer.service} until {logistics.fmt(offer.confirm_by)}",
@@ -322,6 +347,15 @@ def run(scn: Scenario, factors: dict, payments: Payments, *, p_miss: float, fee_
         reason=r.explanation, at=scn.now,
     )
     status = res["status"]
+    if status == "already_held":  # word it from what actually happened, not from the new quote
+        h = res["hold"]
+        same = abs(h.amount_gbp - offer.hold_fee_gbp) < 0.005
+        r.scenario_label = f"{money(h.amount_gbp)} hold"
+        r.explanation = (f"A {money(h.amount_gbp)} hold with {short_name(offer.carrier)} is already active "
+                         f"(hold {h.hold_id}), so nothing new was charged." +
+                         ("" if same else f" {short_name(offer.carrier)} now quotes {money(offer.hold_fee_gbp)}, "
+                          f"but that price doesn't apply to the hold already bought.") +
+                         " Release it if the unit makes the truck; confirm it if the unit fails its bench test.")
     r.payment = {"status": status, "amount_gbp": offer.hold_fee_gbp, "merchant": offer.carrier}
     if res.get("hold"):
         r.payment["hold_id"] = res["hold"].hold_id
@@ -330,11 +364,14 @@ def run(scn: Scenario, factors: dict, payments: Payments, *, p_miss: float, fee_
         r.payment["receipt_id"] = res["receipt"].receipt_id
     if res.get("approval"):
         r.payment["approval_id"] = res["approval"].approval_id
-    if status in ("booked", "already_held"):
+    if status == "booked":
         steps.append(Step(icon="✅", title=f"Booked a {money(offer.hold_fee_gbp)} hold with {offer.carrier}",
                           detail=f"Within {scn.policy.owner}'s {money(scn.policy.per_call_limit_gbp)} policy, paid "
-                                 f"automatically. Receipt {r.payment.get('receipt_id', '')} (simulated)."
-                                 if status == "booked" else "A hold is already active; no second charge."))
+                                 f"automatically. Receipt {r.payment.get('receipt_id', '')} (simulated)."))
+    elif status == "already_held":
+        steps.append(Step(icon="✅", title=f"Hold already active at {money(r.payment['amount_gbp'])} "
+                                           f"with {offer.carrier}",
+                          detail=r.explanation))
     elif status == "approval_requested":
         a = res["approval"]
         steps.append(Step(icon="📱", title=f"Asked {scn.policy.owner} to approve {money(a.amount_gbp)}",
