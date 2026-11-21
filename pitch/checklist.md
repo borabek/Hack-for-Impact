@@ -23,6 +23,8 @@ git pull
 pytest -q
 ```
 - [ ] Restart Streamlit (`streamlit run app.py --server.address 0.0.0.0`), press Reset, live AI off, zoom 125%.
+      **Always restart after a pull:** a running app keeps old code in memory and can crash on Run (seen on the
+      public site at 15:40; a reboot fixed it). Then click Run once to check, and Reset.
 - [ ] If anyone ran the Claude Desktop demo on this laptop, press Reset again (it shares data/state.json).
 - [ ] Record the 2:30 backup video, then check it plays.
 ```bash
