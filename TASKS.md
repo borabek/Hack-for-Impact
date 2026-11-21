@@ -20,16 +20,16 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
 - [x] 12:30 PROMPT A2: llm.py + offers.py + `--eval` (A). Accuracy line still needs an LLM key in `.env`.
 - [x] 13:00 take C's final data and update any expected numbers in the tests (A, 12:40)
 - [x] 13:15 PROMPT A3: agent.py + tests (A). tests/test_agent.py auto-skips until logistics.py lands, then must pass.
-- [ ] 14:00 gate (with B)
+- [x] 14:00 gate (with B): fresh clone, no `.env`, 71 tests pass, demo path works end to end
 - [ ] After the gate, PROMPT A4: Track S first (SolvaPay sandbox MCP, hard stop 15:00) → MCP server → injection test
 - [ ] 15:45 freeze
 
 ## Person B: logistics + UI (Claude Code)
-- [ ] 11:45 PROMPT B1: logistics.py + tests (expected-results table)
-- [ ] 12:40 PROMPT B2: app.py v1 on fake_run()
-- [ ] 13:45 PROMPT B3: wire in agent.run, buttons and phone panel
-- [ ] 14:00 gate (with A)
-- [ ] After the gate, PROMPT B4: polish + Pitch view
+- [x] 11:45 PROMPT B1: logistics.py + tests (expected-results table) (B)
+- [x] 12:40 PROMPT B2: app.py v1 on fake_run() (B)
+- [x] 13:45 PROMPT B3: wire in agent.run, buttons and phone panel (B). app.py reads A's AgentRun (offer ids, offers dict).
+- [x] 14:00 gate (with A): fresh clone, no `.env`, 71 tests pass, demo path works end to end
+- [ ] After the gate, PROMPT B4: polish + Pitch view. Pitch view is built; polish still open.
 - [ ] 15:45 freeze; practise the clicks until they're automatic
 
 ## Person C: data, evidence, customer, pitch (claude.ai chat, no code)
@@ -52,11 +52,17 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
 
 ## Pitch numbers (fill in from the app after 14:00)
 - Extraction accuracy (`python offers.py --eval`):
-- Cost if late, usual plan vs ours:
-- Arrival and spare hours:
-- CO2e, usual plan vs ours:
-- Break-even probability (£60 and £120):
-- £120 scenario, cost if late and expected cost:
+- Cost if late, usual plan vs ours: £1,650 (SwiftVan emergency van) vs £400 (£60 Nordlink hold + £340 transport).
+  Expected cost at 35%: £577.50 waiting vs £179 holding.
+- Arrival and spare hours: ours Thu 09:00 CET, 9 h before the Thu 18:00 CET deadline. The van arrives Wed 14:00 CET
+  (28 h spare), 19 h earlier than we do.
+- CO2e, usual plan vs ours: ≈356 kg vs ≈18 kg (356.1 vs 17.7; modelled estimate on C's final data; first mile
+  included, van's empty return excluded). Dedicated vehicle-km 1,393 vs 50 (the 50 km first mile is still
+  unverified); 1 dedicated cross-border trip avoided.
+- Break-even probability (£60 and £120): 4.6% and 9.2%.
+- £120 scenario, cost if late and expected cost: £460 if late, £239 expected (at 35%).
+- (Replayed run, no key: 38/38 quotes verified against the original messages. The accuracy line above still
+  needs `python offers.py --eval` with an LLM key in `.env`.)
 - Customer quote:
 - SolvaPay quote:
 
@@ -77,6 +83,10 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
   CO2e column is updated: Nordlink ≈17.7 kg, SwiftVan ≈356.1 kg, Milano ≈6.4 kg, AeroDash ≈275.7 kg. Times, costs and
   break-evens are unchanged; the van still passes the ETA plausibility check. Please use these in test_logistics.py.
   Also: show the van's arrival as "Wed 14:00 CET" (it's computed from a UK departure, so convert to +01:00 for display).
+  → B: done. 71 tests pass on the new data, and the app shows the van arriving Wed 14:00 CET.
 - A → C: v2 data applied (Daventry → Monza 1,426 km, LHR → MXP 938 km). One distance is still unverified: the first
   mile **Milton Keynes → Daventry hub (50 km)**. Please send it from Google Maps. PLAN.md pitch lines now say
   "about 1,400 km" and "about 18 kg instead of 356".
+- B → A (FYI, already pushed in e4d7673): tests/test_agent.py's `from agent import ...` line had slipped into its
+  `# noqa` comment, so the file failed to load (NameError: load_scenario). B restored the import line, no other
+  change. Please check it's what you intended.
