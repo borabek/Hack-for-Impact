@@ -8,7 +8,7 @@ except NotImplementedError:
     pytest.skip("waiting for logistics.py (Person B, PROMPT B1)", allow_module_level=True)
 
 import agent  # noqa: E402
-from agent import confirm_slot  # noqa: E402, confirmation_card, load_factors, load_scenario, release_hold, run
+from agent import confirm_slot, confirmation_card, load_factors, load_scenario, release_hold, run  # noqa: E402
 from offers import load_messages, verify  # noqa: E402
 from payments import Payments  # noqa: E402
 
