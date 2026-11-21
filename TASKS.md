@@ -39,6 +39,10 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
 - [x] 12:40 PROMPT B2: app.py v1 on fake_run() (B)
 - [x] 13:45 PROMPT B3: wire in agent.run, buttons and phone panel (B). app.py reads A's AgentRun (offer ids, offers dict).
 - [x] 14:00 gate (with A): fresh clone, no `.env`, 71 tests pass, demo path works end to end
+  - [x] Re-run on the demo laptop at 5eafc1b: fresh clone, no `.env`, `pip install -r requirements.txt`, 81 passed,
+        `streamlit run app.py --server.address 0.0.0.0`. Run → Replay £120 → approved from a phone-sized session over
+        the Network URL → paperwork → bench test failed → £340 approved the same way → confirmation card + impact card.
+        Still to do: C repeats the approvals on a real phone (16:15 task below).
 - [x] After the gate, PROMPT B4: polish + Pitch view (B). UI redesign in 84e3801: dark sidebar, hero, KPI tiles,
       agent timeline, phone frame, ticket receipts, options table with PICK tag, impact comparison. Also: Live AI
       toggle follows the key in `.env` (needs `google-genai` for Gemini; keep it OFF on stage), slider preview reads
@@ -49,6 +53,7 @@ On stage: C opens (0:00–0:30) and closes (2:00–3:00), B clicks, A narrates t
       Bench test failed → Approve £340 → Impact → AeroDash "32 kg" line → Reset.
 - [ ] Check the UI on the projector / demo screen (Cmd + to zoom if text is small).
 - [ ] With C at 16:15: phone on the same Wi-Fi opens the laptop's "Network URL" (port 8501) → Buyer phone → Approve.
+      On the phone, scroll down past the agent's reason to reach Approve; tap ↻ Refresh if a request isn't showing.
       After C approves, press R on the laptop page to refresh (don't reload the tab: it clears the agent log).
 
 ## Person C: data, evidence, customer, pitch (claude.ai chat, no code)
