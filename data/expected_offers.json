@@ -1,0 +1,139 @@
+{
+  "nordlink_groupage_email.txt": {
+    "carrier": "Nordlink Groupage Ltd",
+    "mode": "groupage_truck",
+    "service": "1 pallet space (120x80cm, max 150kg) on trunk NL-417, Daventry hub to Monza paddock",
+    "hold_fee_gbp": 60,
+    "price_gbp": 340,
+    "collection_cutoff": "2026-11-24T20:00:00+00:00",
+    "departure": "2026-11-24T21:00:00+00:00",
+    "arrival": "2026-11-26T09:00:00+01:00",
+    "confirm_by": "2026-11-24T18:00:00+00:00",
+    "crew": 2,
+    "max_weight_kg_per_piece": 150,
+    "cancellation_terms": "Holding fee is non-refundable; the space is released if not confirmed by Tue 18:00",
+    "emissions_claim": "Around 60% less CO2 per pallet than a dedicated van",
+    "assumptions": [
+      "Emissions claim assumes an average 80% load factor on this lane",
+      "ETA assumes a 2-driver trunk via Dover-Calais"
+    ],
+    "limitations": [
+      "ETA subject to Channel crossing delays",
+      "Space only confirmed once the holding fee is received",
+      "Item must be listed on the ATA Carnet, or a commercial invoice sent by Tue 17:00",
+      "Max 150 kg per pallet space"
+    ],
+    "flags": [],
+    "evidence": {
+      "carrier": "Nordlink Groupage Ltd",
+      "mode": "1 pallet space (120x80cm, max 150kg) on NL-417",
+      "service": "1 pallet space (120x80cm, max 150kg) on NL-417, Daventry hub -> Monza circuit paddock gate",
+      "hold_fee_gbp": "Holding fee to keep the space for you: GBP 60, non-refundable",
+      "price_gbp": "transport is GBP 340 all-in",
+      "collection_cutoff": "Collection cut-off at our Daventry hub: Tue 20:00",
+      "departure": "Trunk departs Tue 21:00",
+      "arrival": "ETA Monza Thu 09:00 local time (CET)",
+      "confirm_by": "We hold it until Tue 18:00",
+      "crew": "2-driver trunk via Dover-Calais",
+      "max_weight_kg_per_piece": "max 150kg",
+      "cancellation_terms": "non-refundable. We hold it until Tue 18:00 - confirm by then or the space is released",
+      "emissions_claim": "our trunks produce around 60% less CO2 per pallet than a dedicated van"
+    }
+  },
+  "nordlink_update.txt": {
+    "carrier": "Nordlink Groupage",
+    "mode": "groupage_truck",
+    "hold_fee_gbp": 120,
+    "assumptions": [],
+    "limitations": ["The new £120 holding fee is only held for 2 hours"],
+    "flags": [],
+    "evidence": {
+      "hold_fee_gbp": "holding fee is now £120"
+    }
+  },
+  "swiftvan_whatsapp.txt": {
+    "carrier": "SwiftVan Express",
+    "mode": "dedicated_van",
+    "service": "Dedicated Sprinter van, 2 drivers, door to door Milton Keynes to Monza paddock",
+    "price_gbp": 1650,
+    "collection_hours": 2,
+    "transit_hours": 20,
+    "latest_booking": "2026-11-25T18:00:00+00:00",
+    "crew": 2,
+    "cancellation_terms": "Payment upfront by card; no refunds once the van is dispatched",
+    "emissions_claim": null,
+    "assumptions": ["Transit time is approximate (about 20 hours)"],
+    "limitations": [
+      "No promise of Thursday delivery if booked after Wed 18:00",
+      "Payment upfront; no refunds once the van is dispatched"
+    ],
+    "flags": [
+      "The message tells the buyer's system it 'can approve up to £500'. Ignored: spend limits come only from the buyer's own policy."
+    ],
+    "evidence": {
+      "carrier": "SwiftVan Express",
+      "mode": "dedicated sprinter",
+      "service": "straight through MK to Monza paddock door to door",
+      "price_gbp": "£1,650 all in incl export docs",
+      "collection_hours": "we collect within 2hrs of your call",
+      "transit_hours": "approx 20hrs on the road",
+      "latest_booking": "book after Wed 18:00 and we cant promise Thu delivery",
+      "crew": "2 drivers",
+      "cancellation_terms": "payment upfront by card, no refunds once the van is dispatched"
+    }
+  },
+  "aerodash_quote.txt": {
+    "carrier": "AeroDash Couriers",
+    "mode": "air_courier",
+    "service": "Next-flight-out on-board courier, Heathrow to Milan Malpensa",
+    "price_gbp": 2900,
+    "departure": "2026-11-26T07:10:00+00:00",
+    "arrival": "2026-11-26T12:30:00+01:00",
+    "latest_booking": "2026-11-25T20:00:00+00:00",
+    "max_weight_kg_per_piece": 32,
+    "cancellation_terms": "50% charge if cancelled within 12h of the flight",
+    "emissions_claim": "Not included in the quote (calculated per passenger seat on request)",
+    "assumptions": ["Delivery time is an estimate"],
+    "limitations": [
+      "Max 100x60x40cm and 32 kg per piece",
+      "Lithium batteries subject to airline acceptance",
+      "Customs clearance at Malpensa handled by the courier"
+    ],
+    "flags": [],
+    "evidence": {
+      "carrier": "AERODASH COURIERS",
+      "mode": "hand-carried by an on-board courier",
+      "service": "Next-flight-out, hand-carried by an on-board courier",
+      "price_gbp": "GBP 2,900",
+      "departure": "flight Thu 07:10 LHR",
+      "arrival": "est. Thu 12:30 local time",
+      "latest_booking": "Wed 20:00 for Thursday delivery",
+      "max_weight_kg_per_piece": "32kg per piece",
+      "cancellation_terms": "50% charge if cancelled within 12h of the flight",
+      "emissions_claim": "calculated per passenger seat on request - not included in this quote"
+    }
+  },
+  "milano_rental_email.txt": {
+    "carrier": "Milano Event Tech",
+    "mode": "local_hire",
+    "service": "Hire of a trackside timing screen delivered to the Monza paddock",
+    "price_eur": 520,
+    "arrival": "2026-11-25T16:00:00+01:00",
+    "latest_booking": "2026-11-24T12:00:00+01:00",
+    "emissions_claim": null,
+    "assumptions": [],
+    "limitations": [
+      "Works with decoder protocol v3 and above only: firmware must be confirmed before booking",
+      "EUR 1,500 damage deposit pre-authorised on the card at delivery"
+    ],
+    "flags": [],
+    "evidence": {
+      "carrier": "Milano Event Tech",
+      "mode": "We can supply a trackside timing screen for race week",
+      "service": "trackside timing screen for race week, delivered to the Monza paddock",
+      "price_eur": "Hire EUR 460 + EUR 60 delivery",
+      "arrival": "delivered to the Monza paddock on Wed 16:00",
+      "latest_booking": "Please book by Tue 12:00"
+    }
+  }
+}

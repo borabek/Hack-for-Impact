@@ -1,0 +1,8 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+data/state.json
+data/llm_offers.json
+node_modules/
+.DS_Store

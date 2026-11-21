@@ -1,0 +1,23 @@
+From: Marco Bellini <bookings@nordlink-groupage.example>
+To: Sarah Clarke <logistics@apex-timing.example>
+Subject: RE: Monza week - backup pallet space?
+Date: Mon 23 Nov 2026, 11:42
+
+Hi Sarah,
+
+Thanks for the call. We still have space on trunk NL-417 to Monza this week:
+
+- 1 pallet space (120x80cm, max 150kg) on NL-417, Daventry hub -> Monza circuit paddock gate
+- Collection cut-off at our Daventry hub: Tue 20:00. Trunk departs Tue 21:00.
+- 2-driver trunk via Dover-Calais, ETA Monza Thu 09:00 local time (CET).
+- Holding fee to keep the space for you: GBP 60, non-refundable. We hold it until Tue 18:00 - confirm by then or the space is released.
+- If you confirm, transport is GBP 340 all-in (incl. export/import handling for consolidated loads), invoiced on confirmation.
+- The item must be listed on your ATA Carnet, or send us a commercial invoice by Tue 17:00.
+
+On emissions: our trunks produce around 60% less CO2 per pallet than a dedicated van, based on our average 80% load factor on this lane.
+
+ETA is subject to Channel crossing delays. The space is only confirmed once the holding fee is received.
+
+Best,
+Marco
+Nordlink Groupage Ltd

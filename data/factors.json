@@ -1,0 +1,142 @@
+{
+  "_note": "Every number used on screen lives here with its source. verified=false means placeholder or approximate: Person C must confirm before the pitch.",
+  "emission_factors": {
+    "hgv_artic_avg_laden_kg_per_tkm": {
+      "label": "Articulated HGV (>33t), average laden",
+      "value": 0.07703,
+      "unit": "kgCO2e per tonne-km",
+      "source": "UK Government GHG Conversion Factors 2025 (DESNZ), road freight, diesel artic >33t, average laden, fuel combustion (as listed on Climatiq)",
+      "verified": true
+    },
+    "diesel_van_avg_kg_per_km": {
+      "label": "Diesel van up to 3.5t, average",
+      "value": 0.25561,
+      "unit": "kgCO2e per vehicle-km",
+      "source": "UK Government GHG Conversion Factors 2025 (DESNZ), 'Diesel van - average (up to 3.5 tonnes) - freighting goods' (as listed on Climatiq)",
+      "verified": true
+    },
+    "short_haul_flight_kg_per_pkm": {
+      "label": "Short-haul international flight, economy, with radiative forcing",
+      "value": 0.151,
+      "unit": "kgCO2e per passenger-km",
+      "source": "Approximate: UK Government conversion factors (2021 set) as listed on Climatiq. Replace with the 2025/2026 'Business travel - air' value.",
+      "verified": false
+    }
+  },
+  "distances_km": {
+    "mk_to_daventry_hub": {
+      "label": "Milton Keynes to Daventry hub",
+      "value": 50,
+      "unit": "km",
+      "source": "Approximate, verify with Google Maps",
+      "verified": false
+    },
+    "daventry_to_monza": {
+      "label": "Daventry to Monza via Dover-Calais",
+      "value": 1270,
+      "unit": "km",
+      "source": "Approximate, verify with Google Maps",
+      "verified": false
+    },
+    "mk_to_monza": {
+      "label": "Milton Keynes to Monza via Dover-Calais",
+      "value": 1230,
+      "unit": "km",
+      "source": "Approximate, verify with Google Maps",
+      "verified": false
+    },
+    "mk_to_lhr": {
+      "label": "Milton Keynes to Heathrow",
+      "value": 80,
+      "unit": "km",
+      "source": "Approximate, verify with Google Maps",
+      "verified": false
+    },
+    "lhr_to_mxp_flight": {
+      "label": "Heathrow to Milan Malpensa (flight)",
+      "value": 960,
+      "unit": "km",
+      "source": "Approximate great-circle distance",
+      "verified": false
+    },
+    "mxp_to_monza": {
+      "label": "Malpensa to Monza",
+      "value": 60,
+      "unit": "km",
+      "source": "Approximate, verify with Google Maps",
+      "verified": false
+    },
+    "milan_rental_to_monza": {
+      "label": "Milan rental depot to Monza",
+      "value": 25,
+      "unit": "km",
+      "source": "Approximate",
+      "verified": false
+    }
+  },
+  "assumptions": {
+    "hgv_avg_kmh": {
+      "label": "HGV average speed",
+      "value": 70,
+      "unit": "km/h",
+      "source": "Team assumption: EU HGVs are limited to 90 km/h; allows for traffic",
+      "verified": false
+    },
+    "van_avg_kmh": {
+      "label": "Van average speed",
+      "value": 85,
+      "unit": "km/h",
+      "source": "Team assumption",
+      "verified": false
+    },
+    "channel_crossing_h": {
+      "label": "Channel crossing incl. check-in",
+      "value": 2.5,
+      "unit": "h",
+      "source": "Team assumption (Dover-Calais or Eurotunnel)",
+      "verified": false
+    },
+    "single_driver_daily_driving_h": {
+      "label": "Single driver: max daily driving",
+      "value": 9,
+      "unit": "h",
+      "source": "EU drivers' hours rules (Reg. 561/2006): 9 h a day, extendable to 10 h twice a week",
+      "verified": true
+    },
+    "team_driving_h_per_day": {
+      "label": "Two drivers: driving per day",
+      "value": 18,
+      "unit": "h",
+      "source": "EU drivers' hours rules: each driver max 9 h a day (10 h only twice a week), so two drivers = 18 h. Conservative.",
+      "verified": true
+    },
+    "break_h_per_4_5h": {
+      "label": "Break after 4.5 h driving",
+      "value": 0.75,
+      "unit": "h",
+      "source": "EU drivers' hours rules: 45 min break after 4.5 h",
+      "verified": true
+    },
+    "first_mile_h": {
+      "label": "Drive to the Daventry hub",
+      "value": 1,
+      "unit": "h",
+      "source": "Team assumption",
+      "verified": false
+    },
+    "safe_margin_h": {
+      "label": "Minimum comfortable spare time",
+      "value": 4,
+      "unit": "h",
+      "source": "Team assumption",
+      "verified": false
+    },
+    "gbp_per_eur": {
+      "label": "Exchange rate",
+      "value": 0.86,
+      "unit": "GBP per EUR",
+      "source": "Illustrative, update on the day",
+      "verified": false
+    }
+  }
+}

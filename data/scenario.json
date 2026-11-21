@@ -1,0 +1,35 @@
+{
+  "label": "FICTIONAL SCENARIO, based on the Hack for Impact race-week brief",
+  "now": "2026-11-23T14:00:00+00:00",
+  "buyer": {
+    "company": "Apex Timing Ltd",
+    "approver": "Sarah Clarke",
+    "approver_role": "Head of Logistics"
+  },
+  "shipment": {
+    "shipment_id": "APX-MZA-07",
+    "item": "Trackside timing unit (screen + decoder)",
+    "weight_kg": 45,
+    "dims_cm": "80x60x50",
+    "contains_lithium_battery": true,
+    "origin": "Milton Keynes, UK",
+    "destination": "Monza circuit paddock, Italy",
+    "deadline": "2026-11-26T18:00:00+01:00",
+    "main_truck_departure": "2026-11-23T19:00:00+00:00",
+    "bench_test_result_at": "2026-11-23T16:00:00+00:00",
+    "ready_if_test_fails": "2026-11-24T17:00:00+00:00",
+    "p_miss_main_truck": 0.35,
+    "carnet_listed": false
+  },
+  "policy": {
+    "agent_id": "safety-car-01",
+    "owner": "Sarah Clarke",
+    "per_call_limit_gbp": 100,
+    "daily_limit_gbp": 300,
+    "monthly_limit_gbp": 1500,
+    "allowed_merchants": ["Nordlink Groupage Ltd", "SwiftVan Express", "AeroDash Couriers", "Milano Event Tech"],
+    "purpose": "backup freight for race week"
+  },
+  "baseline_offer_id": "swiftvan",
+  "baseline_label": "Usual plan: wait for the bench test, then send an emergency dedicated van if the unit misses the truck"
+}

@@ -1,0 +1,12 @@
+AERODASH COURIERS - ON-BOARD COURIER QUOTATION Q-55182
+Prepared for: Apex Timing Ltd                Date: 23/11/2026
+
+Service:         Next-flight-out, hand-carried by an on-board courier
+Route:           Milton Keynes -> London Heathrow (road) -> Milan Malpensa (flight) -> Monza (road)
+Latest booking:  Wed 20:00 for Thursday delivery (flight Thu 07:10 LHR, arr. MXP 10:15 local)
+Delivery:        Monza paddock, est. Thu 12:30 local time
+Price:           GBP 2,900 (courier ticket, excess baggage, ground legs)
+Limits:          max 100x60x40cm and 32kg per piece
+Conditions:      lithium batteries subject to airline acceptance; customs clearance at MXP by courier
+Cancellation:    50% charge if cancelled within 12h of the flight
+CO2:             calculated per passenger seat on request - not included in this quote

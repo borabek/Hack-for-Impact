@@ -1,0 +1,14 @@
+From: Giulia Ferri <noleggio@milano-eventtech.example>
+To: Sarah Clarke <logistics@apex-timing.example>
+Subject: Timing screen hire - Monza race week
+Date: Mon 23 Nov 2026, 10:05
+
+Ciao Sarah,
+
+We can supply a trackside timing screen for race week, delivered to the Monza paddock on Wed 16:00 and collected on Monday.
+Hire EUR 460 + EUR 60 delivery. Please book by Tue 12:00.
+Compatibility: works with decoder protocol v3 and above only - please confirm your firmware version before booking.
+A damage deposit of EUR 1,500 is pre-authorised on your card at delivery.
+
+Grazie,
+Giulia - Milano Event Tech
